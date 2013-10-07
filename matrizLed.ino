@@ -10,8 +10,11 @@
 //Definição de da quantidade de linhas e colunas e seus respectivos pinos
 const int numLinhas = 4;
 const int numColunas = 4;
-const int pinosLinha[numLinhas] = {2,4,7,10};
-const int pinosColuna[numColunas] = {9,8,5,3};
+const int pinosLinha[numLinhas] = {2,4,5,8};
+const int pinosColuna[numColunas] = {3,6,7,9};
+
+//Tempo de espera para após mostrar uma letra/desenho na matriz
+const int delayMatriz = 200;
 
 //Definição das letras/desenhos e para exibição
 int branco[4][4] = {
@@ -66,8 +69,7 @@ int o[4][4] = {
 /************************************************************************************
 * Função: void imprimirLetra(int letra[numLinhas][numColunas], int tempoAceso)
 * Descrição: Mostra uma letra/desenho na matriz.			 
-* Notas: Removi o delay de 1ms pois acredito de não seja necessário - testar.
-* 		 Não atiliza mais a função apagarLeds para economizar tempo - apaga o led.
+* Notas: Não atiliza mais a função apagarLeds para economizar tempo: apaga o led
 * 		 logo após acender.
 *		 Agora utiliza a função millis para controlar o tempo.
 ************************************************************************************/
@@ -83,17 +85,26 @@ void imprimirLetra(int letra[numLinhas][numColunas], int tempoAceso){
 			    if(letra[li][co]==1){
 			    	//Acende o led
 					digitalWrite(pinosColuna[co], HIGH);
-				}
-				//delay(1);
+					delay(1);
+				}				
 				//Apaga o led
-				digitalWrite(pinosColuna[co], LOW);				
-				//apagarLeds();			
+				digitalWrite(pinosColuna[co], LOW);					
 			}
 			//Deixa a linha como HIGH para impedir que um led seja aceso na linha
 			digitalWrite(pinosLinha[li], HIGH);
-		}		
+		}
 		tempoAtual = millis();
 	}
+	delay(delayMatriz);
+}
+
+/************************************************************************************
+* Função: void imprimirFrase(int frase, int tempoAceso)
+* Descrição: Recebe uma frase, desmembra em letras e mostra na matriz com 
+* 			 a função imprimirLetra.
+************************************************************************************/
+void imprimirFrase(int frase, int tempoAceso){
+	
 }
 
 /************************************************************************************
@@ -152,9 +163,9 @@ void setup() {
 * 			 as letras na matriz.
 ************************************************************************************/
 void loop() {
-	imprimirLetra(h,1500);
-	/*imprimirLetra('e',1500);
-	imprimirLetra('l',1500);
-	imprimirLetra('l',1500);
-	imprimirLetra('o',1500);*/
+	imprimirLetra(h,1000);
+	imprimirLetra(e,1000);
+	imprimirLetra(l,1000);	
+	imprimirLetra(l,1000);
+	imprimirLetra(o,1000);	
 }

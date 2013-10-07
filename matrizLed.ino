@@ -1,5 +1,5 @@
 /************************************************************************************
-* Name: Matriz de Leds
+* Nome: Matriz de Leds
 * Descrição: Mostra letras ou imagens em uma matriz de leds.
 *
 * Escrito por: Guilherme Alceu Xavier da Silva <guilherme.xavier@pucpr.br>
@@ -7,7 +7,7 @@
 /************************************************************************************
 * Constantes e variáveis
 ************************************************************************************/
-//Definição de da quantidade de linhas e colunas e seus respectivos pinos
+//Definição da quantidade de linhas e colunas e seus respectivos pinos
 const int numLinhas = 4;
 const int numColunas = 4;
 const int pinosLinha[numLinhas] = {2,4,5,8};
@@ -16,8 +16,8 @@ const int pinosColuna[numColunas] = {3,6,7,9};
 //Tempo de espera para após mostrar uma letra/desenho na matriz
 const int delayMatriz = 200;
 
-//Definição das letras/desenhos e para exibição
-int branco[4][4] = {
+//Definição das letras/desenhos para exibição
+int espaco[4][4] = {
 	{0,0,0,0},
 	{0,0,0,0},
 	{0,0,0,0},
@@ -277,9 +277,19 @@ void setup() {
 * 			 as letras na matriz.
 ************************************************************************************/
 void loop() {
-	imprimirLetra(h,1000);
+	/*imprimirLetra(h,1000);
 	imprimirLetra(e,1000);
 	imprimirLetra(l,1000);	
 	imprimirLetra(l,1000);
-	imprimirLetra(o,1000);	
+	imprimirLetra(o,1000);*/
+		
+	imprimirLetra(g,600);
+	imprimirLetra(u,600);
+	imprimirLetra(i,600);
+	imprimirLetra(l,600);
+	imprimirLetra(h,600);
+	imprimirLetra(e,600);
+	imprimirLetra(r,600);
+	imprimirLetra(m,600);
+	imprimirLetra(e,600);
 }
